@@ -1,0 +1,658 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+
+<form id="pagerForm" method="post" action="/SelectSys/CourseListView?majorID=a2e9cc10-c807-4398-b18d-d5c56f6f2dea&amp;numPerPage=50">
+    
+    <input type="hidden" name="pageNum" value="1">
+<input type="hidden" name="numPerPage" value="50">
+<input type="hidden" name="orderField" value="Academic">
+<input type="hidden" name="orderDirection" value="ASC">
+
+    
+    <input type="hidden" name="searchAcademic">
+    <input type="hidden" name="searchCourseCodeC">
+    <input type="hidden" name="searchCourseCodeA">
+    <input type="hidden" name="searchCourseNameC">
+    <input type="hidden" name="searchCourseNameA">
+
+</form>
+
+<div class="pageHeader">
+    <form onsubmit="return navTabSearch(this);" action="/SelectSys/CourseListView?majorID=a2e9cc10-c807-4398-b18d-d5c56f6f2dea&amp;numPerPage=50" method="post">
+        <div class="searchBar">
+            <table class="searchContent">
+                <tbody><tr>
+                    <td>学年/Year：<input name="searchAcademic" type="text"></td>
+                    <td>课程代码：<input name="searchCourseCodeC" type="text"></td>
+                    <td>Course Code：<input name="searchCourseCodeA" type="text"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>课程名称：<input name="searchCourseNameC" type="text"></td>
+                    <td>Course Name：<input name="searchCourseNameA" type="text"></td>
+                    <td></td>
+                    <td>
+                        <div class="subBar">
+                            <ul>
+                                <li>
+                                    <div class="buttonActive">
+                                        <div class="buttonContent">
+<a fresh="true" href="/SelectSys/SelectIndexEnglishView" mask="true" rel="SelectIndexEnglishView" target="navTab" title="Home">GoBack</a>                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul>
+                                <li>
+                                    <div class="buttonActive">
+                                        <div class="buttonContent">
+                                            <button type="submit">检索/Search</button>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            </tbody></table>
+        </div>
+    </form>
+</div>
+
+<div class="pageContent">
+    <div class="panelBar">
+        <ul class="toolBar">
+            <li class="line">line</li>
+        </ul>
+        <span style="color: green; font-size: 12px">
+            重庆师范大学(Chong Qing Normal University)
+            +
+                美国鲍尔州立大学(Ball State University)
+            →
+                计算机科学与技术(Computer  Science)
+        </span>
+    </div>
+    <table class="table" width="100%" layouth="138">
+        <thead>
+            <tr>
+                <th style="width:5%" orderfield="Academic" class="asc">学年</th>
+                <th style="width:15%" orderfield="CourseCodeC">课程代码</th>
+                <th style="width:10%" orderfield="CourseCodeA">CourseCode</th>
+                <th style="width:15%" orderfield="CourseNameC">课程名称</th>
+                <th style="width:20%" orderfield="CourseNameA">CourseName</th>
+                <th style="width: 10%">课时/Hours</th>
+                <th style="width: 5%">学分</th>
+                <th style="width: 5%">Credit</th>
+                <th style="width: 15%">操作/Action</th>
+            </tr>
+        </thead>
+        <tbody>
+                <tr>
+                    <td>
+
+                        1
+                    </td>
+                    <td>
+                        003AA2004A
+                    </td>
+                    <td>
+                        
+                    </td>
+                    <td>
+                        体育 II
+                    </td>
+                    <td>
+                        Physic Education II
+                    </td>
+                    <td style="text-align: center">
+32(Hours)                    </td>
+                    <td style="text-align: center">
+                        2
+                    </td>
+                    <td style="text-align: center">
+                        
+                    </td>
+                    <td style="text-align: center">
+                        <a fresh="true" href="/SelectSys/MajorCourseDetailView?majorcourseid=a942bf99-35b7-4c18-9493-08bb260b1a1e" mask="true" rel="MajorCourseDetailView2" target="navTab">查看/View</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+
+                        1
+                    </td>
+                    <td>
+                        003AA8003A
+                    </td>
+                    <td>
+                        
+                    </td>
+                    <td>
+                        大学英语Ⅱ
+                    </td>
+                    <td>
+                        College EnglishⅡ
+                    </td>
+                    <td style="text-align: center">
+64(Hours)                    </td>
+                    <td style="text-align: center">
+                        3
+                    </td>
+                    <td style="text-align: center">
+                        3
+                    </td>
+                    <td style="text-align: center">
+                        <a fresh="true" href="/SelectSys/MajorCourseDetailView?majorcourseid=4efafca2-9a7a-4881-845a-3721fec91136" mask="true" rel="MajorCourseDetailView2" target="navTab">查看/View</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+
+                        1
+                    </td>
+                    <td>
+                        00008
+                    </td>
+                    <td>
+                        MATHS 221
+                    </td>
+                    <td>
+                        概率论与数理统计
+                    </td>
+                    <td>
+                        Probability and Statistics
+                    </td>
+                    <td style="text-align: center">
+48(Hours)                    </td>
+                    <td style="text-align: center">
+                        3
+                    </td>
+                    <td style="text-align: center">
+                        3
+                    </td>
+                    <td style="text-align: center">
+                        <a fresh="true" href="/SelectSys/MajorCourseDetailView?majorcourseid=dce172e9-0495-4802-a699-56d4d8b08d59" mask="true" rel="MajorCourseDetailView2" target="navTab">查看/View</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+
+                        1
+                    </td>
+                    <td>
+                        003AA3000A
+                    </td>
+                    <td>
+                        
+                    </td>
+                    <td>
+                        中国近现代史纲要
+                    </td>
+                    <td>
+                        Essentials&nbsp;of&nbsp;Chinese&nbsp;Modern&nbsp;&nbsp;History 
+                    </td>
+                    <td style="text-align: center">
+24(Hours)                    </td>
+                    <td style="text-align: center">
+                        1.5
+                    </td>
+                    <td style="text-align: center">
+                        1.5
+                    </td>
+                    <td style="text-align: center">
+                        <a fresh="true" href="/SelectSys/MajorCourseDetailView?majorcourseid=09a2f345-608c-4ad7-b310-5cdd40c3ae76" mask="true" rel="MajorCourseDetailView2" target="navTab">查看/View</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+
+                        1
+                    </td>
+                    <td>
+                        00013
+                    </td>
+                    <td>
+                        CS200
+                    </td>
+                    <td>
+                        计算机导论
+                    </td>
+                    <td>
+                        Computers and Society
+                    </td>
+                    <td style="text-align: center">
+64(Hours)                    </td>
+                    <td style="text-align: center">
+                        3
+                    </td>
+                    <td style="text-align: center">
+                        3
+                    </td>
+                    <td style="text-align: center">
+                        <a fresh="true" href="/SelectSys/MajorCourseDetailView?majorcourseid=256a99b8-b474-4f4b-a5fb-6088c55f2767" mask="true" rel="MajorCourseDetailView2" target="navTab">查看/View</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+
+                        1
+                    </td>
+                    <td>
+                        00001
+                    </td>
+                    <td>
+                        MATHS161
+                    </td>
+                    <td>
+                        微积分I
+                    </td>
+                    <td>
+                        Applied calculus 1
+                    </td>
+                    <td style="text-align: center">
+64(Hours)                    </td>
+                    <td style="text-align: center">
+                        4
+                    </td>
+                    <td style="text-align: center">
+                        3
+                    </td>
+                    <td style="text-align: center">
+                        <a fresh="true" href="/SelectSys/MajorCourseDetailView?majorcourseid=a6f9038e-fa7b-44e8-99e2-611aff3a8ad5" mask="true" rel="MajorCourseDetailView2" target="navTab">查看/View</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+
+                        1
+                    </td>
+                    <td>
+                        00007
+                    </td>
+                    <td>
+                        CS120
+                    </td>
+                    <td>
+                        计算机语言I
+                    </td>
+                    <td>
+                        Computer Sciences 1
+                    </td>
+                    <td style="text-align: center">
+80(Hours)                    </td>
+                    <td style="text-align: center">
+                        4
+                    </td>
+                    <td style="text-align: center">
+                        4
+                    </td>
+                    <td style="text-align: center">
+                        <a fresh="true" href="/SelectSys/MajorCourseDetailView?majorcourseid=08b50471-1171-4c21-8287-884523fae1fd" mask="true" rel="MajorCourseDetailView2" target="navTab">查看/View</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+
+                        1
+                    </td>
+                    <td>
+                        00012
+                    </td>
+                    <td>
+                        CS124
+                    </td>
+                    <td>
+                        离散数学
+                    </td>
+                    <td>
+                        Discret Structure
+                    </td>
+                    <td style="text-align: center">
+48(Hours)                    </td>
+                    <td style="text-align: center">
+                        3
+                    </td>
+                    <td style="text-align: center">
+                        3
+                    </td>
+                    <td style="text-align: center">
+                        <a fresh="true" href="/SelectSys/MajorCourseDetailView?majorcourseid=e32e4d03-37b2-4a56-af3f-9a67dad6c56a" mask="true" rel="MajorCourseDetailView2" target="navTab">查看/View</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+
+                        1
+                    </td>
+                    <td>
+                        00004
+                    </td>
+                    <td>
+                        PHYC 120
+                    </td>
+                    <td>
+                        普通物理
+                    </td>
+                    <td>
+                        General Physics
+                    </td>
+                    <td style="text-align: center">
+64(Hours)                    </td>
+                    <td style="text-align: center">
+                        4
+                    </td>
+                    <td style="text-align: center">
+                        5
+                    </td>
+                    <td style="text-align: center">
+                        <a fresh="true" href="/SelectSys/MajorCourseDetailView?majorcourseid=75ad9433-96a8-405c-9569-9b74a5e8ef44" mask="true" rel="MajorCourseDetailView2" target="navTab">查看/View</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+
+                        1
+                    </td>
+                    <td>
+                        003AA8002A
+                    </td>
+                    <td>
+                        
+                    </td>
+                    <td>
+                        大学英语Ⅰ
+                    </td>
+                    <td>
+                        College English Ⅰ
+                    </td>
+                    <td style="text-align: center">
+64(Hours)                    </td>
+                    <td style="text-align: center">
+                        3
+                    </td>
+                    <td style="text-align: center">
+                        3
+                    </td>
+                    <td style="text-align: center">
+                        <a fresh="true" href="/SelectSys/MajorCourseDetailView?majorcourseid=9d960715-2007-40b1-917e-9e72a755f40c" mask="true" rel="MajorCourseDetailView2" target="navTab">查看/View</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+
+                        1
+                    </td>
+                    <td>
+                        003AA6002A
+                    </td>
+                    <td>
+                        
+                    </td>
+                    <td>
+                        思想道德修养与法律基础
+                    </td>
+                    <td>
+                        Ideological and Moral  Cultivation and  Legal Foundation
+                    </td>
+                    <td style="text-align: center">
+32(Hours)                    </td>
+                    <td style="text-align: center">
+                        2
+                    </td>
+                    <td style="text-align: center">
+                        2
+                    </td>
+                    <td style="text-align: center">
+                        <a fresh="true" href="/SelectSys/MajorCourseDetailView?majorcourseid=47b96b10-7131-4c33-bfb2-a626f36345a2" mask="true" rel="MajorCourseDetailView2" target="navTab">查看/View</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+
+                        1
+                    </td>
+                    <td>
+                        00005
+                    </td>
+                    <td>
+                        ECON 116
+                    </td>
+                    <td>
+                        微观经济学
+                    </td>
+                    <td>
+                        Survey of Ecnomic Ideas
+                    </td>
+                    <td style="text-align: center">
+48(Hours)                    </td>
+                    <td style="text-align: center">
+                        3
+                    </td>
+                    <td style="text-align: center">
+                        3
+                    </td>
+                    <td style="text-align: center">
+                        <a fresh="true" href="/SelectSys/MajorCourseDetailView?majorcourseid=c21f4a98-2d82-4694-87d2-af88715c57aa" mask="true" rel="MajorCourseDetailView2" target="navTab">查看/View</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+
+                        1
+                    </td>
+                    <td>
+                        003AAC001A
+                    </td>
+                    <td>
+                        
+                    </td>
+                    <td>
+                        毛泽东思想和中国特色社会主义理论体系概论
+                    </td>
+                    <td>
+                        Introduction&nbsp;to&nbsp;Mao&nbsp;Zedong&nbsp;Thought&nbsp;and&nbsp;Theoretical System&nbsp;of&nbsp;Socialism&nbsp;with&nbsp;Chinese&nbsp;Characteristics
+                    </td>
+                    <td style="text-align: center">
+48(Hours)                    </td>
+                    <td style="text-align: center">
+                        3
+                    </td>
+                    <td style="text-align: center">
+                        3
+                    </td>
+                    <td style="text-align: center">
+                        <a fresh="true" href="/SelectSys/MajorCourseDetailView?majorcourseid=1eb7a091-6832-4b95-ba51-baf0e8491457" mask="true" rel="MajorCourseDetailView2" target="navTab">查看/View</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+
+                        1
+                    </td>
+                    <td>
+                        JC00000159
+                    </td>
+                    <td>
+                        
+                    </td>
+                    <td>
+                        思想政治实践课
+                    </td>
+                    <td>
+                        Practice of Ideological and Political Theory
+                    </td>
+                    <td style="text-align: center">
+(Hours)                    </td>
+                    <td style="text-align: center">
+                        3.5
+                    </td>
+                    <td style="text-align: center">
+                        3.5
+                    </td>
+                    <td style="text-align: center">
+                        <a fresh="true" href="/SelectSys/MajorCourseDetailView?majorcourseid=d355f5d8-f5fb-4bc7-9d49-c488c123903d" mask="true" rel="MajorCourseDetailView2" target="navTab">查看/View</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+
+                        1
+                    </td>
+                    <td>
+                        003AA4005A
+                    </td>
+                    <td>
+                        
+                    </td>
+                    <td>
+                        马克思主义基本原理
+                    </td>
+                    <td>
+                        The&nbsp;Fundamental&nbsp;Principles&nbsp;of&nbsp;Marxism
+                    </td>
+                    <td style="text-align: center">
+32(Hours)                    </td>
+                    <td style="text-align: center">
+                        2
+                    </td>
+                    <td style="text-align: center">
+                        2
+                    </td>
+                    <td style="text-align: center">
+                        <a fresh="true" href="/SelectSys/MajorCourseDetailView?majorcourseid=4d6a4b40-11d4-4605-92ea-c6f6c51b96e5" mask="true" rel="MajorCourseDetailView2" target="navTab">查看/View</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+
+                        1
+                    </td>
+                    <td>
+                        00003
+                    </td>
+                    <td>
+                        CH 102
+                    </td>
+                    <td>
+                        大学语文
+                    </td>
+                    <td>
+                        Chinese 102
+                    </td>
+                    <td style="text-align: center">
+48(Hours)                    </td>
+                    <td style="text-align: center">
+                        3
+                    </td>
+                    <td style="text-align: center">
+                        3
+                    </td>
+                    <td style="text-align: center">
+                        <a fresh="true" href="/SelectSys/MajorCourseDetailView?majorcourseid=b5405db9-4e70-4a0a-99c3-c8e1efa6eb02" mask="true" rel="MajorCourseDetailView2" target="navTab">查看/View</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+
+                        1
+                    </td>
+                    <td>
+                        00006
+                    </td>
+                    <td>
+                        MUHI 100
+                    </td>
+                    <td>
+                        音乐史
+                    </td>
+                    <td>
+                        Introduction to Music
+                    </td>
+                    <td style="text-align: center">
+48(Hours)                    </td>
+                    <td style="text-align: center">
+                        3
+                    </td>
+                    <td style="text-align: center">
+                        3
+                    </td>
+                    <td style="text-align: center">
+                        <a fresh="true" href="/SelectSys/MajorCourseDetailView?majorcourseid=54253173-b0be-4d76-9798-ce4fa644f3ca" mask="true" rel="MajorCourseDetailView2" target="navTab">查看/View</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+
+                        1
+                    </td>
+                    <td>
+                        00002
+                    </td>
+                    <td>
+                        MATHS162
+                    </td>
+                    <td>
+                        微积分II
+                    </td>
+                    <td>
+                        Applied Calculus 2
+                    </td>
+                    <td style="text-align: center">
+64(Hours)                    </td>
+                    <td style="text-align: center">
+                        4
+                    </td>
+                    <td style="text-align: center">
+                        3
+                    </td>
+                    <td style="text-align: center">
+                        <a fresh="true" href="/SelectSys/MajorCourseDetailView?majorcourseid=82c06550-65ec-4bba-b784-cedd832a2f58" mask="true" rel="MajorCourseDetailView2" target="navTab">查看/View</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+
+                        1
+                    </td>
+                    <td>
+                        003AA2003A
+                    </td>
+                    <td>
+                        
+                    </td>
+                    <td>
+                        体育Ⅰ
+                    </td>
+                    <td>
+                        Physic EducationⅠ
+                    </td>
+                    <td style="text-align: center">
+32(Hours)                    </td>
+                    <td style="text-align: center">
+                        
+                    </td>
+                    <td style="text-align: center">
+                        2
+                    </td>
+                    <td style="text-align: center">
+                        <a fresh="true" href="/SelectSys/MajorCourseDetailView?majorcourseid=a7d92f0e-4d43-4b8c-ba6f-fd400ba151bb" mask="true" rel="MajorCourseDetailView2" target="navTab">查看/View</a>
+                    </td>
+                </tr>
+        </tbody>
+    </table>
+    
+    <div class="panelBar">
+	<div class="pages">
+		<span>Show</span>
+		<select class="combox" name="numPerPage" onchange="navTabPageBreak({numPerPage:this.value});">
+                <option value="20">20</option>
+                <option value="50" selected="">50</option>
+                <option value="100">100</option>
+                <option value="200">200</option>
+                <option value="500">500</option>
+		</select>
+		<span>items per page，共 19 条</span>
+	</div>
+    <div class="pagination" targettype="navTab" totalcount="19" numperpage="50" pagenumshown="10" currentpage="1"></div>
+</div>
+
+</div>
+
