@@ -9,7 +9,10 @@
   "author": "Ying Liu",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
     "jquery": "^3.2.1",
-    "jsdom": "^11.2.0"
+    "jsdom": "^11.2.0",
+    "morgan": "^1.8.2"
   }
 }
