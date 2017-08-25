@@ -11,6 +11,8 @@ function schoolSelectController($scope, $http) {
     $scope.chinaUkeyMap = chinaUkeyMap;
     $scope.selectedU = '';
     $scope.selectedkey = '';
+    $scope.courseDataAvaliable = false;
+
 
     $http.get('/api/initbsu')
       .success(function(data) {
@@ -19,7 +21,6 @@ function schoolSelectController($scope, $http) {
       })
       .error(function(data) {
         debugger;
-
         console.log('Error: ' + data);
       });
 
@@ -28,6 +29,28 @@ function schoolSelectController($scope, $http) {
   $scope.getMajors = function() {
     debugger;
     $scope.selectedkey = chinaUkeyMap[$scope.selectedU];
+    $scope.courseDataAvaliable = false;
+
+    $http({
+        url: '/api/majorunderchinaU',
+        method: "GET",
+        params: {cuid:   $scope.selectedkey}
+     }).success(function(data) {
+       debugger;
+       $scope.ddlCUMajor = data.keyValPair;
+       $scope.CUMajorDict = data.dict;
+       $scope.courseDataAvaliable = true;
+
+       console.log(data);
+     })
+     .error(function(data) {
+       debugger;
+       console.log('Error: ' + data);
+     });
+    $scope.getCourses = function() {
+
+
+    }
   };
 
 

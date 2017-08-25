@@ -33,6 +33,37 @@ app.get('/api/initbsu', (req, res) => {
     });
 });
 
+app.get('/api/majorunderchinaU', (req, res) => {
+
+  console.log('get Major List of CUid: ' + JSON.stringify(req.query.cuid));
+  request('http://courses.cciee121.com/SelectSys/LianDongGetMajorList?datetime=2017/8/25%2022:47:18&styleCorA=C&type=C&universityid=' + req.query.cuid,
+    function(error, response, body) {
+
+      if (error) {
+        res.send(err);
+      } else if (!error && response.statusCode == 200) {
+        //  console.log(JSON.stringify(body,null,2));
+
+        var respJson = {
+          keyValPair: [],
+          dict: {}
+        }
+        var parsed = JSON.parse(body);
+        for (var i = 1; i < parsed.length; i++) {
+          var mId = parsed[i][0];
+          var mName = parsed[i][1];
+          respJson.keyValPair.push({
+            key: mId,
+            value: mName
+          })
+          respJson.dict[mName] = mId;
+        }
+
+        res.json(respJson);
+
+      }
+    });
+});
 // app.get('*', function(req, res) {
 //        res.sendfile('./public/index.html'); // load the single view file (angular will handle the page changes on the front-end)
 //    });
