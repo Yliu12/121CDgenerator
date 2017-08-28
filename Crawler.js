@@ -43,11 +43,10 @@ console.log(huaqiaoMajorIDlist);
 var getCourseInfoandCDlink = (majorId, callback) => {
 
     var result;
-    var httpRequest = "http://courses.cciee121.com/SelectSys/CourseListView?majorID=" + majorId + "&numPerPage=100";
+    var httpRequest = "http://courses.cciee121.com/SelectSys/CourseListView?majorID=" + majorId + "&cora=C&numPerPage=50";
 
 
     console.log("==================================Start HTTP request, Major: " + majorId + "===========================\n", httpRequest);
-
 
     request(httpRequest, function (error, response, body) {
         if (!error && response.statusCode == 200) {
@@ -59,9 +58,6 @@ var getCourseInfoandCDlink = (majorId, callback) => {
             var body = $("body").html();
 
             console.log(body);
-
-
-
 
             getFullCourseInfo(body, callback);
 

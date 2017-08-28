@@ -20,7 +20,7 @@ readCourseListFromFile = function (fileName) {
 
 
 parseCourseList = function (html, thiscallback) {
-
+debugger;
 
     $("body").append(html);
     //console.log($("td>a").eq(0).attr("href"));
@@ -83,11 +83,11 @@ crawDescription = function (httpRequest, callback, myDataTable) {
 
     request(httpRequest, function (error, response, body) {
         if (!error && response.statusCode == 200) {
-            console.log(JSON.stringify(response, undefined, 2));
+            //console.log(JSON.stringify(response, undefined, 2));
             $("body").empty();
             //console.log(body) // Show the HTML for the Google homepage.
             $("body").append(body);
-            console.log($("body").html());
+          //  console.log($("body").html());
             console.log("___________________parse Description Starts_______________");
 
             var reqUrl = response.request.uri.href;
