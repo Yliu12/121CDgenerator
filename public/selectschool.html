@@ -1,69 +1,73 @@
 <html ng-app="app">
 
 <head>
-  <!-- META -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- META -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Optimize mobile viewport -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <!-- Optimize mobile viewport -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
 
-  <!-- load jquery -->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-  <!-- load angular -->
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
-  <!-- app.js -->
-  <script src="app.js"></script>
+    <!-- load jquery -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <!-- load angular -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+    <!-- app.js -->
+    <script src="app.js"></script>
 
-  <title>homepage select U and major</title>
+    <title>homepage select U and major</title>
 
 </head>
 
 <body ng-controller="schoolSelectController">
-  <div class="container">
+<div class="container">
     <h1 ng-init='init()'>TestPage</h1>
 
     <form>
-      <div class="form-group">
-        <!-- ChinaUDDL -->
-         <label for="formGroupExampleInput2">Select Or Type In China University</label>
-        <input class="form-control"  id="something" list="ChinaU" ng-model="selectedU">
-        <datalist id="ChinaU">
-        		<option ng-repeat="obj in ddlChinaU" value="{{obj.value}}">{{obj.key}}</option>
-        	</datalist>
-        </input>
-        <button type="button" class="btn btn-primary" ng-click='getMajors()'>search majors</button>
-      </div>
+        <div class="form-group">
+            <!-- ChinaUDDL -->
+            <label for="formGroupExampleInput2">Select Or Type In China University</label>
+            <input class="form-control" id="chinauinput" list="ChinaU" ng-model="selectedU">
+            <datalist id="ChinaU">
+                <option ng-repeat="obj in ddlChinaU" value="{{obj.value}}">{{obj.key}}</option>
+            </datalist>
+            <button type="button" class="btn btn-primary" ng-click='getMajors()'>search majors</button>
+        </div>
 
-      <div ng-show = 'courseDataAvaliable' class="form-group">
-        <!-- major DDL -->
-         <label for="formGroupExampleInput2">Select Or Type In Major</label>
-        <input class="form-control"  id="something" list="CUMajor" ng-model="selectedMajor">
-        <datalist id="CUMajor">
-            <option ng-repeat="obj in ddlCUMajor" value="{{obj.value}}">{{obj.key}}</option>
-          </datalist>
-        </input>
-        <button type="button" class="btn btn-primary" ng-click='getCourses()'>search Course</button>
-      </div>
+        <div ng-show='courseDataAvaliable' class="form-group">
+            <!-- major DDL -->
+            <label for="formGroupExampleInput2">Select Or Type In Major</label>
+            <input class="form-control" id="majorinput" list="CUMajor" ng-model="selectedMajor">
+            <datalist id="CUMajor">
+                <option ng-repeat="obj in ddlCUMajor" value="{{obj.value}}">{{obj.key}}</option>
+            </datalist>
+            <button type="button" class="btn btn-primary" ng-click='getCourses()'>search Course</button>
+        </div>
 
     </form>
-  </div>
+
+    <course-info ng-repeat="course in courseList" data='course'></course-info>
+
+</div>
 
 
-
-  <div ng-include = "'./formTemplate.html'"></div>
 
 </body>
 
 </html>
 
 <style>
-  html {
-    overflow-y: scroll;
-  }
+    html {
+        overflow-y: scroll;
+    }
 
-  body {
-    padding-top: 50px;
-  }
+    body {
+        padding-top: 50px;
+    }
 </style>
+
+
+
+
+

@@ -2,6 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const request = require('request');
+const crawler = require("./Crawler.js");
+
 
 
 var app = express();
@@ -47,7 +49,7 @@ app.get('/api/majorunderchinaU', (req, res) => {
         var respJson = {
           keyValPair: [],
           dict: {}
-        }
+        };
         var parsed = JSON.parse(body);
         for (var i = 1; i < parsed.length; i++) {
           var mId = parsed[i][0];
@@ -55,7 +57,7 @@ app.get('/api/majorunderchinaU', (req, res) => {
           respJson.keyValPair.push({
             key: mId,
             value: mName
-          })
+          });
           respJson.dict[mName] = mId;
         }
 
@@ -63,6 +65,17 @@ app.get('/api/majorunderchinaU', (req, res) => {
 
       }
     });
+});
+
+
+app.get('/api/courses', (req, res) => {
+    var majorId =req.query.majorid;
+
+    callback  = function (resp) {
+        res.json(resp);
+    };
+    crawler.getCourseInfoandCDlink(majorId,callback);
+
 });
 // app.get('*', function(req, res) {
 //        res.sendfile('./public/index.html'); // load the single view file (angular will handle the page changes on the front-end)
