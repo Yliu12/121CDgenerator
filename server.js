@@ -3,6 +3,8 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const request = require('request');
 
+const crawler = require("./Crawler.js");
+
 const port = process.env.PORT || 8080;
 
 
