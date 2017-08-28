@@ -3,6 +3,8 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const request = require('request');
 
+const port = process.env.PORT || 8080;
+
 
 var app = express();
 app.use(express.static(__dirname + '/public')); // set the static files location /public/img will be /img for users
@@ -65,5 +67,5 @@ app.get('/api/majorunderchinaU', (req, res) => {
 });
 
 
-app.listen(8080);
-console.log("App listening on port 8080");
+app.listen(port);
+console.log("App listening on port "+port);
