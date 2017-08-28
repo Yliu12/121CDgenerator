@@ -11,16 +11,17 @@ function schoolSelectController($scope, $http) {
     $scope.selectedU = '';
     $scope.selectedcuid = '';
     $scope.courseDataAvaliable = false;
-    $scope.courseList = [{
-      name: 'courseName',
-      code: 'courseCode',
-      description: 'Description',
-      grade: 'grade',
-      hours: 54,
-      credit: 3
+    $scope.courseList = [];
 
-    }];
-
+    // {
+    //   name: 'courseName',
+    //   code: 'courseCode',
+    //   description: 'Description',
+    //   grade: 'grade',
+    //   hours: 54,
+    //   credit: 3
+    //
+    // }
 
     $http.get('/api/initbsu')
       .success(function(data) {
