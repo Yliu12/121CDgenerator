@@ -65,7 +65,15 @@ app.get('/api/majorunderchinaU', (req, res) => {
       }
     });
 });
+app.get('/api/courses', (req, res) => {
+     var majorId =req.query.majorid;
 
+     callback  = function (resp) {
+         res.json(resp);
+     };
+     crawler.getCourseInfoandCDlink(majorId,callback);
+
+ });
 
 app.listen(port);
 console.log("App listening on port "+port);
