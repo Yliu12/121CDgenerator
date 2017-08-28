@@ -2,8 +2,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const request = require('request');
-const crawler = require("./Crawler.js");
-
 
 
 var app = express();
@@ -22,7 +20,6 @@ app.get('/', (req, res) => {
 });
 
 app.get('/api/initbsu', (req, res) => {
-
   request('http://courses.cciee121.com/SelectSys/LianDongGetMajorList?datetime=2017/8/25%200:52:36&styleCorA=C&type=A&universityid=0ca53485-93b6-49a3-9824-327963bc2cc5',
     function(error, response, body) {
 
@@ -44,41 +41,29 @@ app.get('/api/majorunderchinaU', (req, res) => {
       if (error) {
         res.send(err);
       } else if (!error && response.statusCode == 200) {
-        //  console.log(JSON.stringify(body,null,2));
-
+        //init response
         var respJson = {
           keyValPair: [],
           dict: {}
-        };
+        }
         var parsed = JSON.parse(body);
+        //format response
         for (var i = 1; i < parsed.length; i++) {
           var mId = parsed[i][0];
           var mName = parsed[i][1];
           respJson.keyValPair.push({
             key: mId,
             value: mName
-          });
+          })
           respJson.dict[mName] = mId;
         }
 
+        //set response
         res.json(respJson);
-
       }
     });
 });
 
 
-app.get('/api/courses', (req, res) => {
-    var majorId =req.query.majorid;
-
-    callback  = function (resp) {
-        res.json(resp);
-    };
-    crawler.getCourseInfoandCDlink(majorId,callback);
-
-});
-// app.get('*', function(req, res) {
-//        res.sendfile('./public/index.html'); // load the single view file (angular will handle the page changes on the front-end)
-//    });
-app.listen(8881);
-console.log("App listening on port 8881");
+app.listen(8080);
+console.log("App listening on port 8080");
