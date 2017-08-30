@@ -1,5 +1,5 @@
-var $ = require('jquery')(require("jsdom").jsdom().defaultView);
-
+// this require version jsdom": "^3.1.2",
+const $ = require('jquery')(require("jsdom").jsdom().defaultView);
 const fs = require('fs');
 const URL = require('url');
 const http = require('http');
@@ -9,6 +9,10 @@ var myDataTable = {};
 var descriptionURLList = [];
 var descList = [];
 
+
+/*
+    Test function, read course list from file
+ */
 readCourseListFromFile = function (fileName) {
 
     fs.readFile('./' + fileName, 'utf8', function (err, html) {
@@ -20,10 +24,9 @@ readCourseListFromFile = function (fileName) {
 
 
 parseCourseList = function (html, thiscallback) {
-debugger;
+    debugger;
 
     $("body").append(html);
-    //console.log($("td>a").eq(0).attr("href"));
 
     var myDataTable = {};
     var trs = $("tbody:eq(1)>tr");
@@ -32,26 +35,17 @@ debugger;
         var tds = $(this).find("td");
         var url;
 
-
         tds.each(function () {
             var data = $(this);
-            //console.log(data.html());
-            //console.log(data.find("a"));
+
 
             if (data.find("a").length != 0) {
                 url = "http://courses.cciee121.com" + data.find("a").eq(0).attr("href");
-
-                // descriptionURLList.push(url);
-
-
             }
             else {
-                //console.log("222232323232-");
                 dataRow.push(data.html().trim());
             }
         });
-
-        //console.log(dataRow);
 
         myDataTable[url] = dataRow;
         acallback = function (myDataTable, url, descriptions) {
@@ -60,15 +54,14 @@ debugger;
         };
         crawDescription(url, acallback, myDataTable);
 
-        ////ttlskjdflkajsdlkjlaksjfd
-
     });
 
     console.log(myDataTable);
 
+    //Todo figure out how to return till all http requests finished
     setTimeout(function () {
         thiscallback(myDataTable)
-    }, 10000)
+    }, 5000)
 
 };
 
@@ -82,12 +75,11 @@ crawDescription = function (httpRequest, callback, myDataTable) {
 
 
     request(httpRequest, function (error, response, body) {
-        if (!error && response.statusCode == 200) {
-            //console.log(JSON.stringify(response, undefined, 2));
+        if (!error && response.statusCode === 200) {
+
             $("body").empty();
-            //console.log(body) // Show the HTML for the Google homepage.
             $("body").append(body);
-          //  console.log($("body").html());
+
             console.log("___________________parse Description Starts_______________");
 
             var reqUrl = response.request.uri.href;
@@ -95,7 +87,6 @@ crawDescription = function (httpRequest, callback, myDataTable) {
             var description = parseDescription(reqUrl);
             callback(myDataTable, reqUrl, description);
 
-            //console.log($("td").text());
         }
     })
 
@@ -117,23 +108,6 @@ parseDescription = function (reqUrl) {
 
 getFullCourseInfo = function (html, callback) {
     parseCourseList(html, callback);
-
-    // setTimeout(function () {
-    //
-    //     console.log("________====================___________Final Result______==========_________");
-    //
-    //     //
-    //     // for (var i = 0; i < descList.length; i++) {
-    //     //     console.log(descList[i].toString());
-    //     // }
-    //
-    //     $.each(myDataTable, function (key, value) {
-    //         console.log(value);
-    //     });
-    //
-    //     // console.log( JSON.stringify(myDataTable));
-    //     console.log("________====================___________Final Result______==========_________");
-    // }, 5000);
 };
 
 
