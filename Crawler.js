@@ -51,6 +51,7 @@ var getCourseInfoandCDlink = (majorId, callback) => {
     request(httpRequest, function (error, response, body) {
         if (!error && response.statusCode == 200) {
 
+            $("body").empty()
             $("body").append('<head><script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script></head>');
             $("body").append(body);
 
