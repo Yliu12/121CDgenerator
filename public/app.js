@@ -66,6 +66,7 @@ function schoolSelectController($scope, $http) {
     //Todo check if key valid before http
     //Todo reset flags.
     $scope.getCourses = function () {
+        $scope.waitingOnData = true;
         $scope.courseDataAvaliable = false;
         $scope.selectedmajorid = $scope.CUMajorDict[$scope.selectedMajor];
         $http({
@@ -75,6 +76,7 @@ function schoolSelectController($scope, $http) {
                 majorid: $scope.selectedmajorid
             }
         }).success(function (data) {
+            $scope.waitingOnData = false;
             $scope.courseDataAvaliable = true;
             debugger;
             $scope.courseList = $scope.parseCourses(data);

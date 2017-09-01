@@ -36,7 +36,7 @@
 
 <body ng-controller="schoolSelectController">
 <div class="container">
-    <h1 class="py-2" ng-init='init()'>CD generator, Beta, 08/28/2017</h1>
+    <h1 class="py-2" ng-init='init()'>CD generator 08/28/2017</h1>
 
         <div class="form-group my-2">
             <!-- ChinaUDDL -->
@@ -60,7 +60,10 @@
             </datalist>
             <button type="button" class="btn btn-primary mt-2" ng-click='getCourses()'>search Course</button>
         </div>
-
+        <div  ng-show="waitingOnData" class="form-group my-2" ng-show='majorDataAvaliable' class="form-group">
+            <!-- Lable -->
+            <label class="form-label" for="majorinput">Please give it 5-10 seconds before magic happens.</label>
+        </div>
     <div ng-show="courseDataAvaliable" class="form-group">
 
     <label> {{courseList.length}} courses found </label>
@@ -103,8 +106,3 @@
         background-color: #f5f5f5;
     }
 </style>
-
-
-
-
-

@@ -31,7 +31,7 @@ app.get('/api/initbsu', (req, res) => {
         res.send(err);
       } else if (!error && response.statusCode == 200) {
         res.json(body);
-
+        res.status(200);
       }
     });
 });
@@ -63,19 +63,22 @@ app.get('/api/majorunderchinaU', (req, res) => {
         }
 
         //set response
+        res.status(200);
         res.json(respJson);
+
       }
     });
 });
 app.get('/api/courses', (req, res) => {
-     var majorId =req.query.majorid;
+  var majorId = req.query.majorid;
 
-     callback  = function (resp) {
-         res.json(resp);
-     };
-     crawler.getCourseInfoandCDlink(majorId,callback);
+  callback = function(resp) {
+    res.json(resp);
+    res.status(200);
+  };
+  crawler.getCourseInfoandCDlink(majorId, callback);
 
- });
+});
 
 app.listen(port);
-console.log("App listening on port "+port);
+console.log("App listening on port " + port);
